@@ -29,10 +29,10 @@ RUN rm /usr/lib/jvm/zulu-8-amd64/jre/lib/security/java.security
 COPY startapp.sh /startapp.sh
 COPY mountiso.sh /mountiso.sh
 
-# Installation du plugin F11
+# Installation du plugin "F-Keys" (F1-F12)
 RUN mkdir -p /opt/install
-COPY f11-injector.js /opt/install/f11-injector.js
-COPY install-f11.sh /etc/cont-init.d/99-install-f11.sh
-RUN chmod +x /etc/cont-init.d/99-install-f11.sh
+COPY custom-keys.js /opt/install/custom-keys.js
+COPY install-custom-keys.sh /etc/cont-init.d/99-install-custom-keys.sh
+RUN chmod +x /etc/cont-init.d/99-install-custom-keys.sh
 
 WORKDIR /app
